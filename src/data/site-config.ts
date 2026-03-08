@@ -1,4 +1,4 @@
-import avatar from '../assets/images/avatar.jpg';
+import avatar from '../assets/images/avatar.png';
 import hero from '../assets/images/hero.jpg';
 import type { SiteConfig } from '../types';
 
@@ -6,9 +6,9 @@ const siteConfig: SiteConfig = {
     website: 'https://example.com',
     avatar: {
         src: avatar,
-        alt: 'Ethan Donovan'
+        alt: 'Arunima Surendran'
     },
-    title: 'Dante',
+    title: 'Arunima Surendran',
     subtitle: 'Minimal Astro.js theme',
     description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
     image: {
@@ -45,20 +45,16 @@ const siteConfig: SiteConfig = {
         {
             text: 'Terms',
             href: '/terms'
-        },
-        {
-            text: 'Download theme',
-            href: 'https://github.com/JustGoodUI/dante-astro-theme'
         }
-    ],
+    ]
     socialLinks: [
         {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
+            text: 'LinkedIn',
+            href: 'https://www.linkedin.com/in/arunima-surendran/'
         },
         {
-            text: 'Instagram',
-            href: 'https://instagram.com/'
+            text: 'GitHub',
+            href: 'https://github.com/arunimakanavu'
         },
         {
             text: 'X/Twitter',
@@ -67,7 +63,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence.\nMy approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products.\nI have a profound appreciation for top-notch software, visual design, and the principles of product-led growth.\n\nFeel free to explore some of my coding endeavors on [GitHub](https://github.com/JustGoodUI/dante-astro-theme) or follow me on [Twitter/X](https://twitter.com/justgoodui).",
+        text: "I amm **Arunima Surendran**, I just wander around the realms of technology, literature and photography, and do what I like to do.",
         image: {
             src: hero,
             alt: 'A person sitting at a desk in front of a computer'
