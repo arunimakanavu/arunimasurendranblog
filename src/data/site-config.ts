@@ -46,7 +46,7 @@ const siteConfig: SiteConfig = {
             text: 'Terms',
             href: '/terms'
         }
-    ]
+    ],
     socialLinks: [
         {
             text: 'LinkedIn',
@@ -54,7 +54,7 @@ const siteConfig: SiteConfig = {
         },
         {
             text: 'GitHub',
-            href: 'https://github.com/arunimakanavu'
+            href: 'https://github.com/arunimakanavu/'
         },
         {
             text: 'X/Twitter',
@@ -63,7 +63,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I amm **Arunima Surendran**, I just wander around the realms of technology, literature and photography, and do what I like to do.",
+        text: "I am **Arunima Surendran**, I just wander around the realms of technology, literature and photography, and do what I like to do.",
         image: {
             src: hero,
             alt: 'A person sitting at a desk in front of a computer'
