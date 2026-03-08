@@ -9,7 +9,7 @@ const siteConfig: SiteConfig = {
         alt: 'Arunima Surendran'
     },
     title: 'Arunima Surendran',
-    subtitle: 'Minimal Astro.js theme',
+    subtitle: 'Quiero, ergo sum.',
     description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
     image: {
         src: '/dante-preview.jpg',
@@ -77,8 +77,8 @@ const siteConfig: SiteConfig = {
     },
     subscribe: {
         enabled: true,
-        title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
+        title: 'Subscribe to my newsletter',
+        text: 'No spams, I promise!',
         form: {
             action: '#'
         }
