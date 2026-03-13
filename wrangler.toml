@@ -1,0 +1,8 @@
+name = "arunimasurendranblog"
+compatibility_date = "2026-03-12"
+compatibility_flags = ["global_fetch_strictly_public", "nodejs_compat"]
+main = "dist/_worker.js/index.js"
+
+# For Worker Sites, point to the built static directory
+[assets]
+bucket = "./dist"

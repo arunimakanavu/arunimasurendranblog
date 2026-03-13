@@ -1,0 +1,14 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "arunimasurendranblog",
+    "compatibility_date": "2026-03-12",
+    "compatibility_flags": [
+        "global_fetch_strictly_public",
+        "nodejs_compat"
+    ],
+    "main": "dist/_worker.js/index.js",
+    "assets": {
+        "binding": "ASSETS",
+        "directory": "dist"
+    }
+}
