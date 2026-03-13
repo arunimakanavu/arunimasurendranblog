@@ -1,64 +1,134 @@
 ---
-title: 'TimeWarp - Travel Agency Website'
-description: Explore the possibilities of time travel through an immersive website for a fictional travel agency, complete with dynamic destination timelines and interactive historical events.
-publishDate: 'Oct 2 2023'
+title: 'Drowsiness Detection (OpenVINO – Head Pose + Gaze)'
+description: This repository contains a minimal, working proof-of-concept for driver drowsiness detection using OpenVINO. The system uses head pose estimation as the primary signal and gaze stability as a secondary confirmation signal.
+publishDate: 'February 2 2026'
 isFeatured: true
-seo:
-  image:
-    src: '../../assets/images/project-2.jpg'
-    alt: Project preview
+tag:
+- Edge AI
+- OpenVINO
+- Computer Vision
 ---
 
-![Project preview](../../assets/images/project-2.jpg)
+# Drowsiness Detection (OpenVINO – Head Pose + Gaze)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+This repository contains a **minimal, working proof-of-concept** for driver drowsiness detection using **OpenVINO**. 
+The system uses **head pose estimation as the primary signal** and **gaze stability as a secondary confirmation signal**.
 
-**Project Overview:**
-TimeWarp Travel Agency aims to redefine the travel experience by offering an innovative and immersive online platform that explores the concept of time travel. The website combines cutting-edge technology with captivating storytelling to provide users with a unique journey through time.
+> ⚠️ This is a demo / POC implementation intended for experimentation and understanding model behavior, not a production-ready safety system.
 
-> Working with Ethan Donovan was a game-changer for our online presence. Their innovative solutions and attention to detail turned our vision into a reality. The website not only looks fantastic but also functions seamlessly. A true professional who exceeded our expectations!
+---
 
-## Objectives
+## 1. What This Demo Does
 
-1. Create a visually stunning and user-friendly website that captures the essence of time travel.
-2. Integrate interactive elements to engage users and make the experience memorable.
-3. Develop a responsive design to ensure a seamless user experience across various devices.
+- Captures live video from a webcam
+- Detects the face
+- Estimates head pose (yaw, pitch, roll)
+- Estimates gaze direction from eye crops
+- Triggers a **DROWSINESS ALERT** when:
+  - Head pitch indicates sustained downward posture **and**
+  - Gaze becomes abnormally stable over time
 
-## Features
+---
 
-1. **Dynamic Destination Timelines:**
+## 2. Prerequisites
 
-- Users can explore destinations through dynamic timelines, showcasing significant historical events, cultural developments, and architectural milestones.
-- Interactive sliders allow users to navigate through different eras, providing a visual representation of the historical evolution of each location.
+### System
+- Ubuntu 20.04 / 22.04 (recommended)
+- Python 3.9 – 3.12
+- Webcam
 
-2. **Interactive Historical Events:**
+### Python Dependencies
+Create a virtual environment (recommended):
 
-- Users can click on specific points in the timeline to reveal detailed information about key historical events related to the chosen destination.
-- Rich multimedia content, including images, videos, and articles, provides a comprehensive understanding of each event.
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-3. **Personalized Time Travel Planner:**
+Install dependencies:
 
-- A personalized planner feature enables users to create their time travel itineraries by selecting specific eras and destinations.
-- The system suggests thematic experiences, such as attending historical events or meeting famous personalities.
+```bash
+pip install -r requirements.txt
+```
 
-4. **Time-Port Virtual Reality Experience:**
+Typical `requirements.txt`:
 
-- For an extra layer of immersion, users can opt for the Time-Port VR experience, allowing them to virtually step into different time periods and explore the surroundings in 360 degrees.
+```text
+openvino>=2023.3
+opencv-python
+numpy
+```
 
-5. **Chronicle Explorer Blog:**
+---
 
-- A blog section, "Chronicle Explorer," offers in-depth articles and stories about various historical periods and their impact on the destinations featured on the platform.
-- Users can engage with the content, comment, and share their own historical insights.
+## 3. Required OpenVINO Models
 
-## Technology Stack
+**Model conversion is NOT required**. Pre-converted IR models from Open Model Zoo are used.
 
-- **Frontend:** [Astro.js](https://astro.build/) for a dynamic and responsive user interface and [Tailwind CSS](https://tailwindcss.com/) for styling.
-- **Backend:** Node.js for handling server-side logic and API integration.
-- **Database:** MongoDB for efficient storage and retrieval of historical data.
-- **VR Integration:** A-Frame framework for creating immersive virtual reality experiences.
+Download the following models using Open Model Zoo tools:
 
-## Outcome
+```bash
+omz_downloader --name face-detection-adas-0001
+omz_downloader --name facial-landmarks-98-detection-0001
+omz_downloader --name head-pose-estimation-adas-0001
+omz_downloader --name gaze-estimation-adas-0002
+```
 
-The TimeWarp Travel Agency Website successfully brings the concept of time travel to life, providing users with a captivating and educational experience. The website not only serves as a travel planning tool but also as an interactive platform that encourages users to explore and appreciate the rich tapestry of human history.
+Ensure the models are available under:
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+```text
+models/
+├── face-detection-adas-0001/FP16/
+├── facial-landmarks-98-detection-0001/FP16/
+├── head-pose-estimation-adas-0001/FP16/
+└── gaze-estimation-adas-0002/FP16/
+```
+
+> If FP16 is unavailable, FP32 can also be used (update paths in code accordingly).
+
+---
+
+## 4. Running the Demo
+
+From the project root:
+
+```bash
+python3 fatigue_detection_demo.py
+```
+
+Press **`q`** to quit.
+
+---
+
+## 5. Output Explanation
+
+### On-screen
+- **Face bounding box**
+- **Gaze arrow** (yellow): visualized gaze direction
+- **Pitch & gaze metrics** (debug overlay)
+- **DROWSINESS ALERT** text when conditions are met
+
+
+## 6. Alert Logic (High-level)
+
+- **Head Pose**: primary indicator (sustained downward pitch)
+- **Gaze Stability**: secondary confirmation (low variance over time)
+- Alert is raised only when **both conditions persist for N frames** (in this case 15 frames)
+
+This fusion strategy reduces false positives caused by normal downward gaze (e.g., reading, looking at dashboard).
+
+---
+
+## 7. Known Limitations
+
+- Sensitive to camera placement and lighting
+- Gaze estimation is subtle and user-dependent
+- No eye-closure (EAR) model used in this version
+- Single-face assumption
+
+---
+
+## 8. Conclusion
+
+This POC demonstrates how **head pose and gaze estimation can be fused** using OpenVINO models to detect potential drowsiness scenarios in real time. The project focuses on clarity, debuggability, and correctness of model usage rather than completeness.
+

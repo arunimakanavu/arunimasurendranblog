@@ -1,61 +1,187 @@
 ---
-title: 'NeuralPlaylist - AI Generated Music Recommendations'
-description: Leveraging advanced algorithms and machine learning, NeuralPlaylist crafts personalized music recommendations based on users' preferences, moods, and even biometric data.
-publishDate: 'Oct 19 2023'
-seo:
-  image:
-    src: '../../assets/images/project-4.jpg'
+title: 'HR Resource Query Chatbot'
+description: An AI-powered chatbot that helps HR teams quickly identify suitable employees based on natural language queries.
+publishDate: 'June 17 2025'
+
+tag:
+- LLM
+- RAG
+
 ---
 
-![Project preview](../../assets/images/project-4.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+# HR Resource Query Chatbot
 
-**Project Overview:**
-NeuralPlaylist is a cutting-edge web application that redefines music discovery through the power of artificial intelligence. Leveraging advanced algorithms and machine learning, NeuralPlaylist crafts personalized music recommendations based on users' preferences, moods, and even biometric data.
+An AI-powered chatbot that helps HR teams quickly identify suitable employees based on natural language queries. Whether you're looking for "Python developers with 3+ years experience" or "someone who has worked on healthcare projects," this assistant retrieves the most relevant candidates and presents a detailed recommendation using a RAG (Retrieval-Augmented Generation) pipeline.
 
-## Objectives
+---
 
-1. Develop an intuitive and user-friendly web application that utilizes AI to curate personalized music playlists for users.
-2. Implement machine learning models that analyze user behavior, preferences, and physiological responses to create dynamic and context-aware music recommendations.
-3. Provide an immersive and interactive platform that enhances the music listening experience and introduces users to new genres and artists.
+## Overview
+
+This chatbot is designed to simplify resource allocation tasks for HR professionals by combining retrieval techniques with a local language model (LLaMA2 via Ollama). It takes unstructured, human-like queries and returns structured, insightful recommendations based on employee data such as skills, experience, and project history.
+
+---
 
 ## Features
 
-1. **Biometric Mood Analysis:**
+- Natural language query understanding
+- RAG pipeline using embeddings + LLM generation
+- FastAPI backend for clean RESTful APIs
+- Streamlit frontend for interactive querying
+- Embedding-based semantic search (FAISS)
+- Dynamic response generation using LLaMA2 (local)
+- Sample employee dataset with rich metadata
+- API endpoints for chat and employee search
+- Dark mode UI with adjustable top-K results
 
-- NeuralPlaylist incorporates biometric data analysis to understand users' moods and emotional states.
-- The AI algorithms use facial recognition and heart rate data to curate playlists that match users' current emotional states.
+---
 
-2. **Personalized Playlists:**
+## Architecture
 
-- Users receive dynamic and highly personalized playlists based on their music history, preferences, and contextual factors.
-- NeuralPlaylist adapts to users' evolving tastes, introducing them to new genres and artists that align with their musical journey.
+**System Components:**
 
-3. **Context-Aware Recommendations:**
+```
+User Input → Streamlit UI → FastAPI Backend
+         ↓                            ↓
+   Local LLM (LLaMA2) ← RAG Pipeline ← FAISS Vector Store
+                                ↑
+                      Employee Dataset (JSON)
+```
 
-- The application takes into account contextual factors such as time of day, weather, and location to tailor music recommendations.
-- Users receive playlists suited for specific occasions, moods, and environments.
+- **Frontend**: Built with Streamlit for quick deployment and user interactivity
+- **Backend**: FastAPI handles chat queries and search endpoints
+- **Embeddings**: Sentence-transformers generate vector representations
+- **Vector Search**: FAISS enables similarity search
+- **LLM**: LLaMA2 (run locally via Ollama) generates natural responses
 
-4. **Collaborative Playlists:**
+---
 
-- NeuralPlaylist encourages social interaction by allowing users to create and share collaborative playlists with friends.
-- Friends can contribute to the playlist, creating a shared musical experience that adapts to the collective preferences of the group.
+## Setup & Installation
 
-5. **Real-Time Feedback Integration:**
+### 1. Clone the Repository
 
-- Users can provide real-time feedback on song selections, allowing the AI to continuously refine recommendations.
-- The system learns from user interactions to enhance the accuracy of future music suggestions.
+```bash
+git clone https://github.com/arunimakanavu/hr-resource-chatbot.git
+cd hr-resource-chatbot
+```
 
-## Technology Stack
+### 2. Set Up Virtual Environment
 
-- Frontend: Vue.js for a dynamic and responsive user interface.
-- Backend: Flask for handling server-side logic and API integration.
-- Database: MongoDB for efficient storage and retrieval of user and music data.
-- AI Integration: PyTorch for developing machine learning models for music recommendation and biometric analysis.
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-## Outcome
+### 3. Install Dependencies
 
-NeuralPlaylist has redefined the music listening experience by harnessing the power of AI to provide users with hyper-personalized and context-aware playlists. The application not only adapts to users' musical preferences but also introduces them to new and exciting musical journeys based on their emotions and surroundings.
+```bash
+pip install -r requirements.txt
+```
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+### 4. Start the Backend API
+
+```bash
+uvicorn main:app --reload
+```
+
+### 5. Start the Streamlit Frontend
+
+```bash
+streamlit run interface.py
+```
+
+> Ensure that Ollama is installed and `llama2` model is pulled via:
+> ```
+> ollama pull llama2
+> ```
+
+---
+
+## API Documentation
+
+### `POST /chat`
+
+**Description**: Accepts a user query and returns a list of recommended employees based on semantic similarity and LLM response.
+
+**Request:**
+```json
+{
+  "query": "Find React developers available for a new project",
+  "top_k": 3
+}
+```
+
+**Response:**
+```json
+{
+  "response": "Based on your query, the top candidates are..."
+}
+```
+
+---
+
+### `GET /employees/search`
+
+**Description**: Allows direct keyword-based employee search from the dataset.
+
+**Parameters**:
+- `skill` (optional)
+- `availability` (optional)
+
+**Example:**
+```
+GET /employees/search?skill=Python&availability=available
+```
+
+---
+
+## AI Development Process
+
+- **Tools Used**:
+  - ChatGPT: architecture planning, code refactoring, embedding script generation
+  - GitHub Copilot: autocompletion during module development
+  - Ollama: for local LLM inferencing
+- **AI Contribution**:
+  - ~60% of the code (initial scaffolding, Streamlit layout, API handler logic)
+  - ~40% hand-written (LLM tuning, bug fixes, Streamlit tweaks)
+- **Interesting AI-Assisted Areas**:
+  - Automatic generation of employee recommendation formatting
+  - LLM prompt engineering for result personalization
+- **Manual Solved Challenges**:
+  - Token handling in embedding vector mismatch
+  - Streamlit and FastAPI CORS/port syncing
+
+---
+
+## Technical Decisions
+
+- **Open-Source over Cloud**: Opted for LLaMA2 via Ollama to allow offline, private, and cost-efficient development.
+- **FastAPI**: Chosen for its async capabilities, auto-generated docs, and clean routing.
+- **FAISS**: Lightweight and fast for in-memory vector similarity search.
+- **Trade-offs**:
+  - Local LLMs are slower than OpenAI API but eliminate API costs.
+  - Streamlit was used over React for rapid development, but less customizable.
+
+---
+
+## Future Improvements
+
+- Chat history with persona memory
+- Upload your own employee CSV or JSON
+- Admin dashboard for adding/updating employee profiles
+- Docker containerization for deployment
+- Online deployment via Streamlit Cloud or Render
+
+---
+
+## Demo
+
+![HR Bot Demo](../../assets/images/hrbot.png)
+> Example Query: `"Who has worked on healthcare projects?"`  
+> Returns: Based on the employee data provided, I would suggest Alice Johnson and Sarah Chen as suitable candidates for working on healthcare projects.
+
+Alice Johnson has experience in developing an e-commerce platform and a healthcare dashboard, which suggests that she has some familiarity with the healthcare industry and its digital needs. Additionally, her proficiency in Python, React, and AWS is relevant to healthcare project development, as these technologies can be used for data analysis, interface design, and cloud computing, respectively.
+
+Sarah Chen has extensive experience in medical imaging and machine learning, which are crucial aspects of healthcare projects. Her knowledge of TensorFlow and PyTorch can help develop accurate diagnosis platforms and clinical data pipelines. Furthermore, her experience in developing a medical diagnosis platform suggests that she has experience working on complex healthcare projects.
+
+Ahmed Khan's experience in developing a payroll system and healthcare compliance tools may not be directly relevant to healthcare project development, but his proficiency in C# and .NET could be useful for building applications that require data analysis and management. However, based on the employee data provided, Alice Johnson and Sarah Chen are better suited for working on healthcare projects due to their specific skills and experience related to healthcare.

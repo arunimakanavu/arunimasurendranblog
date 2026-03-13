@@ -1,5 +1,5 @@
 import avatar from '../assets/images/avatar.png';
-import hero from '../assets/images/hero.jpg';
+// import hero from '../assets/images/hero.jpg';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
@@ -9,7 +9,7 @@ const siteConfig: SiteConfig = {
         alt: 'Arunima Surendran'
     },
     title: 'Arunima Surendran',
-    subtitle: 'Quiero, ergo sum.',
+    subtitle: 'Quaero, ergo sum.',
     description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
     image: {
         src: '/dante-preview.jpg',
@@ -62,12 +62,12 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        title: 'Hi There & Welcome to My Corner of the Web!',
+        title: 'Code, Curiosity and the Occasional Rabbit Hole!',
         text: "I am **Arunima Surendran**, I just wander around the realms of technology, literature and photography, and do what I like to do.",
-        image: {
-            src: hero,
-            alt: 'A person sitting at a desk in front of a computer'
-        },
+        // image: {
+        //     src: hero,
+        //     alt: 'A person sitting at a desk in front of a computer'
+        // },
         actions: [
             {
                 text: 'Get in Touch',

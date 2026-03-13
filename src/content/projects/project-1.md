@@ -1,66 +1,161 @@
 ---
-title: 'EcoBuddy: Sustainable Living App'
-description: EcoBuddy is a mobile app that gamifies sustainable living. Users can set eco-friendly goals, track their carbon footprint, and earn virtual rewards for adopting environmentally conscious habits.
-publishDate: 'Jan 02 2024'
-seo:
-  image:
-    src: '../../assets/images/project-1.jpg'
-    alt: Project preview
+title: 'Model Card for Medical GPT-OSS-20B LoRA Adapter'
+description: This model is a LoRA adapter fine-tuned on openai/gpt-oss-20b using the PEFT library. It is optimized for medical domain tasks such as question answering, summarization, and knowledge retrieval in healthcare contexts. The adapter modifies the base model with efficient fine-tuning techniques while retaining the general-purpose reasoning capabilities of the underlying 20B parameter model.
+publishDate: 'September 26 2025'
+isFeatured: true
+tags:
+- LLMs
+- Supervised Fine-tuning
+- Transformers
+
 ---
 
-![Project preview](../../assets/images/project-1.jpg)
+## Model Details
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+### Model Description
 
-**Project Overview:**
-EcoBuddy is a revolutionary mobile application designed to make sustainable living accessible, engaging, and rewarding. With a focus on gamification and real-world impact, EcoBuddy encourages users to adopt eco-friendly habits, reduce their carbon footprint, and contribute to a healthier planet.
+This model is a LoRA adapter fine-tuned on `openai/gpt-oss-20b` using the PEFT library. It is optimized for **medical domain tasks** such as question answering, summarization, and knowledge retrieval in healthcare contexts. The adapter modifies the base model with efficient fine-tuning techniques while retaining the general-purpose reasoning capabilities of the underlying 20B parameter model.
 
-## Objectives
+- **Developed by:** Arunima Surendran
+- **Funded by:** E2E Cloud
+- **Shared by:** Arunima Surendran
+- **Model type:** Large Language Model with LoRA adapter (20B base)
+- **Language(s):** English
+- **License:** Apache 2.0
+- **Finetuned from model:** openai/gpt-oss-20b
+- **Finetuned using:** NVIDIA 2xH200 for 12+ hours on E2E Cloud TIR Instance
 
-1. Develop a user-friendly mobile app that motivates individuals to adopt sustainable practices in their daily lives.
-2. Utilize gamification elements to make sustainable living fun and interactive.
-3. Provide educational resources and personalized challenges to empower users to make informed eco-conscious decisions.
+### Model Sources
 
-## Features
+- **Repository:** [https://github.com/arunimakanavu/gpt-oss-medical](https://github.com/arunimakanavu/gpt-oss-medical)
 
-1. **EcoScore and Challenges:**
+## Requirements
 
-- Users are assigned an EcoScore based on their sustainable activities and choices.
-- Daily and weekly challenges encourage users to adopt new habits and compete with friends or the community to earn EcoPoints.
+```text
+torch>=2.0.0
+transformers @ git+https://github.com/huggingface/transformers.git
+datasets>=2.12.0
+peft>=0.10.0
+accelerate>=0.22.0
+bitsandbytes>=0.41.0
+sentencepiece>=0.1.99
+```
 
-2. **Personalized Eco-Goals:**
+## Uses
 
-- Users can set and track personalized eco-goals, such as reducing plastic usage, conserving water, or choosing eco-friendly transportation.
-- The app provides tips and suggestions to help users achieve their goals.
+### Direct Use
 
-3. **Green Rewards Marketplace:**
+- Medical Q&A
+- Clinical text summarization
+- Educational content generation in healthcare
 
-- EcoPoints earned through challenges and sustainable actions can be redeemed in a virtual Green Rewards Marketplace.
-- The marketplace offers discounts on eco-friendly products, services, and even contributions to environmental causes.
+### Downstream Use
 
-4. **Community Hub:**
+- Integrating into RAG pipelines with domain-specific medical knowledge bases
+- Deployment in medical chatbots (for informational purposes only)
 
-- A community feature allows users to connect, share their eco-friendly achievements, and inspire others.
-- Users can join local eco-groups, organize clean-up events, and collaborate on sustainability projects.
+### Out-of-Scope Use
 
-5. **EcoEducator AI Assistant:**
+- Direct clinical decision-making or diagnostic tools without human oversight
+- High-stakes medical applications without proper validation
 
-- An AI-powered assistant, EcoEducator, provides personalized eco-tips, facts, and information based on users' preferences and habits.
-- Users can chat with EcoEducator for instant advice on sustainable living.
+## Bias, Risks, and Limitations
 
-## Technology Stack
+The model may generate:
 
-- Frontend: React Native for cross-platform mobile app development.
-- Backend: Firebase for real-time data synchronization and user authentication.
-- Database: Firestore for scalable and flexible data storage.
-- AI Integration: Dialogflow for natural language processing and conversation with EcoEducator.
+- Inaccurate or hallucinated medical information
+- Biased outputs due to limitations in training data
+- Text not suitable for unsupervised clinical decision-making
 
-## Outcome
+### Recommendations
 
-EcoBuddy has successfully created a community of environmentally conscious individuals who actively participate in sustainable living practices. The app not only educates and motivates users but also provides tangible rewards for their commitment to a greener lifestyle, fostering a positive impact on the environment.
+Users should:
 
-## Client Testimonial
+- Treat outputs as **assistive**, not authoritative
+- Always cross-verify with trusted medical sources
+- Avoid using the model for patient-facing diagnosis without professional review
 
-> We couldn't be happier with the results delivered by Ethan Donovan. From the initial concept discussions to the final product, their responsiveness and collaborative approach were impressive. Our startup's website now stands out, thanks to their creative input and commitment to excellence.
+## How to Get Started with the Model
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer, PeftModel
+
+base_model = "openai/gpt-oss-20b"
+adapter_path = "./medical_gpt_oss_medical"
+
+model = AutoModelForCausalLM.from_pretrained(base_model, device_map="auto", torch_dtype="auto")
+model = PeftModel.from_pretrained(model, adapter_path)
+
+tokenizer = AutoTokenizer.from_pretrained(base_model)
+```
+
+## Training Details
+
+### Training Data
+
+- Domain-specific medical text corpus
+- Filtered for quality and relevance
+
+### Training Procedure
+
+- Fine-tuned using **LoRA** on top of GPT-OSS-20B
+- Mixed precision training (`bf16`)
+
+#### Training Hyperparameters
+
+- **Training regime:** bf16 mixed precision
+- **Compute:** NVIDIA 2xH200 GPUs
+- **Training time:** 12+ hours
+
+## Evaluation
+
+### Testing Data, Factors & Metrics
+
+- Domain: medical Q&A and summarization
+- Metrics: Perplexity, BLEU/ROUGE for summarization, accuracy for Q&A
+
+### Results
+
+- BERTScore = 0.834
+- [Evaluation Documentation](https://github.com/arunimakanavu/gpt-oss-medical/blob/main/eval_doc.md)
+- [Hugging Face Model Card](https://huggingface.co/arunimas1107/gpt-oss-medical)
+
+## Environmental Impact
+
+- **Hardware Type:** NVIDIA 2xH200 (E2E TIR platform)
+- **Hours used:** 12+
+- **Cloud Provider:** E2E Networks
+
+## Technical Specifications
+
+### Model Architecture and Objective
+
+- Base: GPT-OSS-20B (20 billion parameters)
+- Adapter: LoRA (low-rank fine-tuning)
+
+### Compute Infrastructure
+
+- **Hardware:** NVIDIA 2xH100 
+- **Software:** PyTorch, Transformers, PEFT
+
+## Citation
+
+**BibTeX:**
+
+```bibtex
+@misc{gptoss20b-medical,
+  title = {Medical GPT-OSS-20B LoRA Adapter},
+  author = {Arunima Surendran},
+  year = {2025},
+  url = {https://github.com/arunimakanavu/gpt-oss-medical}
+}
+```
+
+## Authors
+
+- Arunima Surendran
+
+### Framework versions
+
+- PEFT 0.17.0
+
