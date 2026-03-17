@@ -29,10 +29,6 @@ const siteConfig: SiteConfig = {
             href: '/blog'
         },
         {
-            text: 'Tags',
-            href: '/tags'
-        },
-        {
             text: 'About',
             href: '/about'
         }
@@ -45,6 +41,10 @@ const siteConfig: SiteConfig = {
         {
             text: 'Contact',
             href: '/contact'
+        },
+        {
+            text: 'Tags',
+            href: '/tags'
         }
     ],
     socialLinks: [
