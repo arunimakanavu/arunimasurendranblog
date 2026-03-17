@@ -9,8 +9,6 @@ tag:
 - Computer Vision
 ---
 
-# Drowsiness Detection (OpenVINO – Head Pose + Gaze)
-
 This repository contains a **minimal, working proof-of-concept** for driver drowsiness detection using **OpenVINO**. 
 The system uses **head pose estimation as the primary signal** and **gaze stability as a secondary confirmation signal**.
 

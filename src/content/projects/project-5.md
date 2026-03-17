@@ -10,6 +10,7 @@ tag:
 ---
 
 Real-time crowd density estimation using CSRNet and OpenVINO. Processes an overhead video, generates per-frame density maps, applies spatial zone analysis, performs temporal aggregation, and flags anomalies.
+
 ---
 
 ## How It Works
