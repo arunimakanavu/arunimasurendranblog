@@ -5,34 +5,16 @@ seo:
   description: Learn more about the person behind the website and embark on a journey of inspiration and shared experiences.
 ---
 
-**Note!:** This about page is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+I'm Arunima Surendran, an Applied AI Engineer Technical Writer who spends most of her time somewhere between a terminal and a text editor, figuring out how to make edge AI work and then explaining it to people.
 
-## Ethan Donovan - Web Developer based in Estonia
+Currently, I work with Intel's OpenEdge team on technical marketing, which in practice means a lot of things at once: building proof-of-concept AI video pipelines using Intel Geti, OpenVINO, and DLStreamer; writing developer-focused and high-level blogs for product releases like the Metro AI Suite and Health and Life Sciences AI Suite; reviewing and contributing to technical documentation for the OpenEdge Platform; and being involved in the product marketing messaging process early enough to actually influence it. I also test edge AI applications before release, which is less glamorous than it sounds but means I know where things break.
 
-**Greetings!** I'm Ethan Donovan, a passionate web developer residing in the picturesque landscapes of [Estonia](https://en.wikipedia.org/wiki/Estonia). With a keen eye for design and a love for crafting seamless digital experiences, I bring a unique blend of creativity and technical expertise to the world of web development.
+Before Intel, I was at E2E Networks as a Technical Writer and ML Engineer. That's where I got deep into model development end-to-end: designing and fine-tuning RAG pipelines, instruction-tuned models, vision models, OCR systems, and MCP servers for data integration. I also wrote and published technical blogs there, the kind that ranked in Google's top three results and showed up in generative AI platforms, which is a strange and satisfying thing to watch happen.
 
-## Skills and Expertise
+My background is in Physics, which probably explains why I'm drawn to problems that require both rigorous thinking and clear communication. Over the years I've done a fair amount of freelance technical and academic writing, simplifying concepts, building content strategies, and writing for audiences ranging from developers to students to general readers.
 
-I specialize in front-end and back-end development, utilizing the latest technologies to build responsive and user-friendly websites. My proficiency includes **HTML**, **CSS**, **JavaScript**, and frameworks such as **Astro.js** for dynamic and interactive user interfaces. On the server side, I'm well-versed in Node.js and have experience with database management systems like MongoDB.
+The throughline across all of it is an interest in making hard things legible. Edge AI infrastructure, model pipelines, OpenVINO internals, whatever the topic, the goal is always the same: understand it well enough to explain it without losing what makes it interesting.
 
-## Innovation and Problem-Solving
+When I'm not working, I'm usually somewhere in the Western Ghats, paying close attention to something most people would walk past.
 
-I thrive on solving complex problems and transforming ideas into functional, elegant websites. Whether it's optimizing performance, implementing new features, or troubleshooting issues, I approach each challenge with enthusiasm and a commitment to delivering high-quality solutions.
-
-## Global Perspective, Local Impact
-
-Living in Estonia has not only influenced my appreciation for nature and culture but has also shaped my approach to web development. I understand the importance of creating digital solutions that resonate with local audiences while maintaining a global perspective.
-
-## Continuous Learning
-
-The dynamic nature of the tech industry inspires me to stay up-to-date with the latest trends and advancements. I'm always eager to expand my skill set and embrace emerging technologies that enhance the functionality and aesthetics of the websites I create.
-
-## Collaboration and Communication
-
-I believe in the power of collaboration and effective communication. Whether working with clients, designers, or fellow developers, I value clear communication to ensure the success of every project.
-
-## Get in Touch
-
-Are you looking to elevate your online presence or bring your digital ideas to life? I'd love to hear from you! Feel free to reach out for collaboration, consultation, or just a friendly chat about all things web development.
-
-_Let's build something amazing together!_
+---
