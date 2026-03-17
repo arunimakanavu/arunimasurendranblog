@@ -10,7 +10,6 @@ import { sortItemsByDateDesc } from '../utils/data-utils';
 
 const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
 const featuredPosts = posts.filter(({ data }) => data.isFeatured);
-const recentPosts = posts.slice(0, 3);
 
 const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
 const featuredProjects = projects.filter(({ data }) => data.isFeatured);
@@ -19,10 +18,10 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
 <BaseLayout description={siteConfig.description}>
     <Hero {...siteConfig.hero} />
     {
-        recentPosts?.length > 0 && (
+        featuredPosts?.length > 0 && (
             <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Recent Posts</h2>
-                {recentPosts.map((post) => (
+                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Featured Posts</h2>
+                {featuredPosts.map((post) => (
                     <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
                 ))}
                 <div class="mt-12 sm:mt-16">
