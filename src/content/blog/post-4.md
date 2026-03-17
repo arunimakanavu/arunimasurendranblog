@@ -2,6 +2,7 @@
 title: "A Developer's Guide to Edge AI Workloads with Metro AI Suite"
 excerpt: "In our previous blog, \"Intersection to Infrastructure: Enabling Edge AI with Metro AI Suite,\" we explored why a pragmatic, end‑to‑end pipeline is essential for building scene‑aware traffic analytics at the edge. The Smart Intersection sample application demonstrates a practical, modular pattern for multi‑camera traffic understanding; combining edge‑side object detection, scene‑level synchronized time stamping, and dashboards."
 publishDate: 'March 3 2026'
+isFeatured: true
 tags:
   - Computer Vision
   - OpenEdge Platform

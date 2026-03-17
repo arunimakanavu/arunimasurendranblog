@@ -2,6 +2,7 @@
 title: 'Real-Time Crowd Density Estimation Using CSRNet and OpenVINO'
 excerpt: Crowd counting is a deceptively hard problem. The traditional approach of running a person detector, count bounding boxes, collapses almost immediately in real-world dense scenes. When people are packed tightly, occlusion causes detectors to miss 40–60% of individuals. The count becomes meaningless precisely when it matters most. This post walks through a pipeline I built for real-time crowd density estimation using CSRNet and OpenVINO. The system processes an overhead video feed, generates per-frame density maps, applies spatial zone analysis, performs temporal aggregation, and flags anomalies; all running locally with no cloud dependency.
 publishDate: 'March 17 2026'
+isFeatured: true
 tags:
   - Computer Vision
   - OpenEdge Platform

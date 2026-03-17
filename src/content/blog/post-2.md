@@ -2,6 +2,7 @@
 title: 'Rethinking Driver Fatigue Detection with Behavior-Optimized Live Visual Monitoring using OpenVINO'
 excerpt: Driver fatigue remains one of the most under-addressed safety risks in ride-hailing and long-duration driving scenarios. Unlike reckless driving, fatigue does not present itself as a single, obvious failure. It develops gradually, often while the driver continues to perform routine actions without realizing that attention has dropped.
 publishDate: 'February 2 2026'
+isFeatured: true
 tags:
   - Computer Vision Models
   - OpenVINO
