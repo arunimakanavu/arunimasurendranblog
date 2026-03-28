@@ -5,7 +5,7 @@ seo:
   description: Learn more about the person behind the website and embark on a journey of inspiration and shared experiences.
 ---
 
-[Download my CV](/assets/cv.pdf)
+[Download my CV](/cv)
 
 I'm Arunima Surendran, an Applied AI Engineer Technical Writer who spends most of her time somewhere between a terminal and a text editor, figuring out how to make edge AI work and then explaining it to people.
 
