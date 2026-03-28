@@ -5,6 +5,8 @@ seo:
   description: Learn more about the person behind the website and embark on a journey of inspiration and shared experiences.
 ---
 
+[Download my CV](/assets/cv.pdf)
+
 I'm Arunima Surendran, an Applied AI Engineer Technical Writer who spends most of her time somewhere between a terminal and a text editor, figuring out how to make edge AI work and then explaining it to people.
 
 Currently, I work with Intel's OpenEdge team on technical marketing, which in practice means a lot of things at once: building proof-of-concept AI video pipelines using Intel Geti, OpenVINO, and DLStreamer; writing developer-focused and high-level blogs for product releases like Open Edge Health and Life Sciences AI Suite; reviewing and contributing to technical documentation for the OpenEdge Platform; and being involved in the product marketing messaging process early enough to actually influence it. I also test edge AI applications before release, which is less glamorous than it sounds but means I know where things break.
