@@ -1,7 +1,7 @@
 ---
 title: 'Operationalizing Visual Anomaly Detection for Industrial Systems with Anomalib Studio'
 excerpt: Defect detection looks simple on paper; point a camera at a product, train a model, catch defects. In practice, it is a tough industrial AI problem to solve. The defect samples can be rare, and when defects do exist, they vary randomly and endlessly. Labeling is slow, time consuming, resource intensive, and inconsistent. On top of that, teams must assemble training pipelines, tune thresholds manually, and deploy models on constrained edge hardware. Defect detection projects have suffered with this problem for far too long and largely used to end up being too complex to operate reliably, rather than models being weak and inaccurate. This becomes exacerbated when reliable defect data is not present in enough quantity to train models reliably. This is exactly the problem Anomalib Studio is built to address.
-publishDate: 'March 17 2026'
+publishDate: 'April 1 2026'
 tags:
   - Computer Vision
   - OpenEdge Platform
