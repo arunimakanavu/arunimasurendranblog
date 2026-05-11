@@ -1,7 +1,7 @@
 ---
 title: A Scalable Approach to Zero Shot and Few Shot Vision Learning at the Edge with Geti Instant Learn
 excerpt: Many computer vision projects at the edge begin before enough data is available to train traditional models. In these early stages, collecting large datasets and building highly specialized models can be time-consuming, costly, and often impractical. This is especially true in real-world environments where conditions change often or problems need to be solved quickly. 
-publishDate: April 24, 2026
+publishDate: 'April 24 2026'
 tags:
   - Computer Vision
   - OpenEdge Platform
