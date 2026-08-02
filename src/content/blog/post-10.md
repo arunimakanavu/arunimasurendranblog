@@ -8,6 +8,7 @@ tags:
   - Intel
 ---
 
+
 Many computer vision projects at the edge begin before enough data is available to train traditional models. In these early stages, collecting large datasets and building highly specialized models can be time-consuming, costly, and often impractical. This is especially true in real-world environments where conditions change often or problems need to be solved quickly.  For example, a manufacturing line may introduce a new product before defects are fully understood, or in healthcare, radiology and ultrasound teams may want to identify anomalies or quality issues in new imaging workflows without large, annotated datasets. 
 Geti Instant Learn is built for these realities. It enables teams to develop and deploy zero-shot and few-shot vision models directly at the edge, using simple visual and vision or text-based prompts to configure model behavior. 
 
